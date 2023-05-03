@@ -1,0 +1,62 @@
+body {
+    font-family: Lucida Sans Unicode, Helvetica, Arial;
+}
+
+.display-center {
+    justify-content: center; 
+}
+
+.block-title {
+    background-color: silver; 
+    margin-bottom: 15px; 
+    font-size: 22pt;
+}
+
+.heading {
+    text-decoration: underline; 
+    color: #A4A400;
+}
+
+.fs-11 {
+    font-size: 11pt;
+}
+
+#f-l {
+    list-style-type: none; 
+    padding-left: 0
+}
+
+.underline {
+    text-decoration: underline
+}
+
+#b-p-padding {
+    padding: 0% 5% 0% 5%;
+}
+
+.p-bc {
+    background-color: #ffffa8;
+}
+
+a {
+    color: #A4A400;
+}
+
+footer {
+    flex-direction: column; 
+    width: 300px;
+}
+
+pre {
+    width: 300px;
+}
+
+.flex {
+    display: flex;
+}
+
+.img-btn {
+    border:0;
+    width:88px;
+    height:31px
+}

@@ -1,0 +1,51 @@
+h3 {
+    color: green;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.start-letter {
+    font-size: 1.5em;
+}
+
+dt {
+    font-family: "Trebuchet MS";
+    font-size: .75em;
+    color: green;
+}
+
+dd {
+    font-family: "Trebuchet MS";
+    color: chocolate;
+}
+
+body {
+    background-color: silver;
+}
+
+.mood {
+    font-family: Verdana;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.label {
+    font-family: "Trebuchet MS";
+}
