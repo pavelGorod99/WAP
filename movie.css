@@ -1,5 +1,7 @@
 #banner {
     background-image: url('images/bannerbg.png');
+    /* background-repeat: no-repeat; */
+    /* background-color: red; */
 }
 
 #body-part {
