@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="tasklist.css">
+        <script>
+            function addTask() {
+                let taskElem = document.getElementById("task");
+                let task = taskElem.value;
+                document.getElementById('task-list').value = task;
+                taskElem.value = "";
+            }
+            function clearTask() {
+                let taskListElem = document.getElementById('task-list');
+                taskListElem.value = "";
+            }
+        </script>
+    </head>
+    <body class="flex j-center">
+
+        <div class="f-column w-50" id="div-p-container">
+            
+            <div>
+                <h2>Task List</h2>
+            </div>
+
+            <div class="flex" style="padding: 10px;">
+                <div class="f-column w-50" id="left-block">
+                    <span style="margin-left: 15px">Task</span>
+                    <input type="text" id="task">
+                    <button onclick="addTask();">Add Task</button>
+                    <button onclick="clearTask();">Clear Tasks</button>
+                </div>
+                <div class="f-column w-50" id="right-block">
+                    <span>
+                        Task List
+                    </span>
+                    <textarea rows="5" id="task-list">
+
+                    </textarea>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
