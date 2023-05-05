@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body style="display: flex; justify-content: center;">
+        <div style="width: 50%">
+            <form action="/action_page.php">
+                <fieldset style="background-color: #e0e1ff; border-radius: 10px;">
+                    <legend style="background-color: gainsboro; border: 1px black solid;">New User Signup:</legend>
+    
+                    <div style="display: flex;">
+                        <div style="display: flex; flex-direction: column; width: 30%;">
+                            <label for="name" style="margin-bottom: 5px;">Name:</label>
+    
+                            <label for="lname" style="margin-bottom: 5px;">Gender:</label>
+    
+                            <label for="age" style="margin-bottom: 5px;">Age:</label>
+    
+                            <label for="ptype" style="margin-bottom: 5px;">Personality type:</label>
+    
+                            <label for="os" style="margin-bottom: 5px;">Favorite OS:</label>
+    
+                            <label for="quantity" style="margin-bottom: 5px;">Seeking age:</label>
+                        </div>
+                        <div style="display: flex; flex-direction: column; width: 70%;">
+                            <input type="text" id="name" name="name" style="margin-bottom: 5px;">
+                            
+                            <div style="margin-bottom: 5px;">
+                                <input type="radio" id="male" name="gender" value="Male">
+                                <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female">Female</label>
+                            </div>
+    
+                            <input type="text" id="age" name="age" style="margin-bottom: 5px;">
+    
+                            <div>
+                                <input type="ptype" id="ptype" name="ptype" style="margin-bottom: 5px;">
+                                (<snap style="color: red">Don't know your type?</snap>)
+                            </div>
+    
+                            <select name="os" id="os" style="margin-bottom: 5px;">
+                                <option value="windows">Windows</option>
+                                <option value="linux">Linux</option>
+                                <option value="android">Android</option>
+                                <option value="iOS">iOS</option>
+                            </select>
+    
+                            <div style="margin-bottom: 5px;">
+                                <input type="number" id="min" name="min" min="1" max="5" placeholder="min">
+                                to
+                                <input type="number" id="min" name="min" min="1" max="5" placeholder="max">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <input type="submit" value="Sign Up" style="background-color: #fda9a9;">
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
