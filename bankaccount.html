@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        class BankAccount {
+
+            static _list = [];
+
+            constructor(accountName, deposit) {
+                this._accountName = accountName;
+                this._deposit = deposit;
+
+                BankAccount._list.push(this);
+            }
+
+            setDeposit(value) {
+                this._deposit = value;
+            }
+
+            get getAccountName() {
+                return this._accountName;
+            }
+
+            get getDeposit() {
+                return this._deposit;
+            }
+
+            static getList() {
+                return BankAccount._list;
+            }
+
+            static saveListToLocalStorage() {
+                const data = JSON.stringify(BankAccount._list);
+                localStorage.setItem("list", data);
+            }
+
+            static loadListFromLocalStorage() {
+                const data = localStorage.getItem("list");
+                const objectsData = JSON.parse(data);
+                BankAccount._list = objectsData.map(obj => new BankAccount(obj._accountName, obj._deposit));
+            }
+        }
+
+        function updateTextArea() {
+            var textarea = document.getElementById("accountList");
+            var list = "";
+            for (const elem of BankAccount._list) {
+                list += "Account name: " + elem.getAccountName + " Balance: " + elem.getDeposit + "\n";
+            }
+            textarea.value = list;
+            console.log(BankAccount._list);
+        }
+
+        function createObject() {
+            var accountName = document.getElementById("fname").value;
+            var deposit = document.getElementById("deposit").value;
+            new BankAccount(accountName, deposit);
+            updateTextArea();
+        }
+
+        function name(params, ...list) {
+            console.log(params);
+        }
+
+        function storeList() {
+            let arr = new Array(), i = 0;
+            console.log(BankAccount._list[0].getAccountName);
+            for (let elem of BankAccount._list) {
+                arr[i] = {};
+                arr[i].accountName = elem.getAccountName;
+                arr[i].deposit = elem.getDeposit;
+                i++;
+            }
+
+            localStorage.setItem("data", JSON.stringify(arr));
+            BankAccount.saveListToLocalStorage();
+        }
+
+        function openWindow() {
+            storeList();
+            const params = "height=200, width=600, left=100, top=100, resizable=yes, scrollbars=yes, toolbar=yes, menubar=no, location=no, directories=no, status=yes";
+            window.open("deposit.html", "deposit", params);
+        }
+
+        function openDepositWindow() {
+            localStorage.setItem("operation", "deposit");
+            openWindow();
+        }
+
+        function openDebitWindow() {
+            localStorage.setItem("operation", "debit");
+            openWindow();
+        }
+
+        function updateData(data) {
+            const account = JSON.parse(data);
+            const operation = localStorage.getItem("operation");
+
+            console.log(account);
+            console.log(operation);
+            
+            if (account != null) {
+                let arr = new Array(), i = 0;
+
+                BankAccount.loadListFromLocalStorage();
+
+                for (let elem of BankAccount._list) {
+                    console.log(elem.getAccountName + " || " + elem.getDeposit);
+                    if (elem.getAccountName == account.accountName) {
+                        if (operation == "deposit") {
+                            elem.setDeposit(parseInt(elem.getDeposit) + parseInt(account.deposit));
+                        } else if (elem.getDeposit >= account.deposit) {
+                            elem.setDeposit(parseInt(elem.getDeposit) - parseInt(account.deposit));
+                        }
+                        console.log("element deposit: " + elem);
+                    }
+                }
+
+                updateTextArea();
+            }
+        }
+
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'DataUpdate') {
+                updateData(event.data.data);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <!-- <form> -->
+    <label for="fname">Account name:</label>
+    <input style="margin-bottom: 5px;" type="text" id="fname" name="fname" value="John">
+    <br>
+    <label for="deposit">Deposit:</label>
+    <input style="margin-bottom: 5px;" type="number" id="deposit" name="deposit" value="0">
+    <br>
+    <input style="margin-bottom: 5px;" type="button" value="Create new account" onclick="createObject()">
+    <br>
+    <textarea style="margin-bottom: 5px;" rows="6" cols="45" id="accountList"></textarea>
+    <br>
+    <button style="margin-right: 5px;" onclick="openDepositWindow()">Deposit</button>
+    <button onclick="openDebitWindow()">Debit</button>
+    <!-- </form> -->
+</body>
+
+</html>

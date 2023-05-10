@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            let arr;
+
+            window.addEventListener("message", (event) => {
+                arr = JSON.parse(localStorage.getItem("data"));
+                localStorage.removeItem("data");
+
+                const operation = localStorage.getItem("operation");
+
+                var operLabel = document.getElementById("operationLabel");
+                if (operation == "deposit") {
+                    operLabel.innerHTML = "Deposit: ";
+                } else {
+                    operLabel.innerHTML = "Debit: ";
+                }
+
+                var select = document.getElementById("accounts");
+
+                for (let account of arr) {
+                    var option = document.createElement('option');
+                    option.value = account.accountName;
+                    option.innerHTML = account.accountName;
+                    select.appendChild(option);
+                }
+            }, false);
+
+            function selectAccount(object) {
+                var deposit = document.getElementById("deposit");
+                
+                for (let acc of arr) {
+                    if (acc.accountName == object.value) {
+                        deposit.value = acc.deposit;
+                        break;
+                    }
+                }
+
+                var depositDiv = document.getElementById("depositDiv");
+                depositDiv.style.display = "block";
+
+                var updateBtn = document.getElementById("updateBtn");
+                updateBtn.style.display = "block";
+            }
+
+            function closeWindow() {
+                var accountName = document.getElementById("accounts").value;
+                var deposit = document.getElementById("deposit").value;
+
+                console.log("account name: " + accountName);
+                console.log("deposit: " + deposit);
+
+                var account = {
+                    accountName: accountName,
+                    deposit: deposit
+                };
+                console.log(account);
+                localStorage.setItem("account", JSON.stringify(account));
+                const acc = localStorage.getItem("account");
+                console.log(acc);
+                // alert(1);
+                window.opener.postMessage({ type: 'DataUpdate', data: acc }, '*');
+                window.close();
+            }
+
+        </script>
+    </head>
+    <body>
+        <label for="cars">Choose an account:</label>
+
+        <select style="margin-bottom: 10px;" name="accounts" id="accounts" onchange="selectAccount(this)">
+            <option value="default" disabled selected>Choose an account</option>
+        </select>
+
+        <div id="depositDiv" style="display: none; margin-bottom: 10px;">
+            <label for="cars" id="operationLabel">Deposit:</label>
+            <input type="number" id="deposit">
+        </div>
+
+        <button style="display: none;" id="updateBtn" onclick="closeWindow()">Update</button>
+        
+    </body>
+</html>
