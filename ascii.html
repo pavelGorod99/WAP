@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="ascii.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body class="flex center">
+        <div class="flex column" id="container">
+            <div class="flex center items-center" id="label">
+                <h3>
+                    CSE 190 M ASCII Animation Viewer
+                </h3>
+            </div>
+            <div class="flex center">
+                <textarea rows="15" cols="75"></textarea>
+            </div>
+            <div class="flex center">
+                <fieldset>
+                    <legend>Play Controls:</legend>
+                    <button>Start</button>
+                    <button disabled>Stop</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Animation:</legend>
+                    <select name="animation" id="animation">
+                        <option value="Blank">Blank</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Size:</legend>
+                    <select name="size" id="size">
+                        <option value="Blank">Medium</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Speed:</legend>
+                    <input type="checkbox" id="turbo" name="turbo">
+                    <label for="turbo">Turbo</label>
+                </fieldset>
+            </div>
+        </div>
+    </body>
+</html>

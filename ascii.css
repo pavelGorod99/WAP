@@ -1,0 +1,25 @@
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+#container {
+    width: 650px; 
+    height: 400px; 
+    background-color: #ccccff;
+}
+
+#label {
+    height: 40px;
+}
