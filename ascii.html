@@ -2,6 +2,8 @@
 <html>
     <head>
         <link href="ascii.css" type="text/css" rel="stylesheet" />
+        <script src="animations.js"></script>
+        <script src="ascii.js"></script>
     </head>
     <body class="flex center">
         <div class="flex column" id="container">
@@ -11,35 +13,38 @@
                 </h3>
             </div>
             <div class="flex center">
-                <textarea rows="15" cols="75"></textarea>
+                <textarea style="resize: none; width: 560px; height: 225px" rows="15" cols="75" id="frame"></textarea>
             </div>
             <div class="flex center">
                 <fieldset>
                     <legend>Play Controls:</legend>
-                    <button>Start</button>
-                    <button disabled>Stop</button>
+                    <button id="start" onclick="start()">Start</button>
+                    <button id="stop" onclick="stop()" disabled>Stop</button>
                 </fieldset>
                 <fieldset>
                     <legend>Animation:</legend>
-                    <select name="animation" id="animation">
-                        <option value="Blank">Blank</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                    <select name="animation" id="animation" onchange="setAnimation()">
+                        <option value="BLANK">Blank</option>
+                        <option value="EXERCISE">Exercise</option>
+                        <option value="JUGGLER">Juggler</option>
+                        <option value="BIKE">Bike</option>
+                        <option value="DIVE">Dive</option>
                     </select>
                 </fieldset>
                 <fieldset>
                     <legend>Size:</legend>
-                    <select name="size" id="size">
-                        <option value="Blank">Medium</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                    <select name="size" id="size" onchange="setSize(this.value)">
+                        <option value="7pt">Tiny</option>
+                        <option value="10pt">Small</option>
+                        <option value="12pt">Medium</option>
+                        <option value="16pt">Large</option>
+                        <option value="24pt">Extra Large</option>
+                        <option value="32pt">XXL</option>
                     </select>
                 </fieldset>
                 <fieldset>
                     <legend>Speed:</legend>
-                    <input type="checkbox" id="turbo" name="turbo">
+                    <input type="checkbox" id="turbo" name="turbo" onclick="setTurbo()">
                     <label for="turbo">Turbo</label>
                 </fieldset>
             </div>
