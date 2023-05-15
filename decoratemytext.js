@@ -14,10 +14,12 @@ window.onload = function(){
 // }
 
 function reSizeFont(){
-    let size = parseInt(textArea.style.fontSize);
-    size += 2;
-    textArea.style.fontSize = size + "pt";
-    textArea.style.width = "100%";
+    var textarea = document.getElementById("area");
+    textarea.style.fontSize = "24pt";
+    // let size = parseInt(textArea.style.fontSize);
+    // size += 2;
+    // textArea.style.fontSize = size + "pt";
+    // textArea.style.width = "100%";
 }
 
 function interval(){

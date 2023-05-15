@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>text demo</title>
+        <style>
+            p {
+                color: blue;
+                margin: 8px;
+            }
+            span {
+                color: red;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    </head>
+    <body>
+        <p>
+            <span>
+                Test
+            </span> 
+            Paragraph.
+        </p>
+        <p></p>
+        <script>
+            var innerText = $('p:eq(0)').text().trim();
+            $('p:eq(1)').text(innerText);
+
+            $("div > h1").css("background-color", "red");
+
+            $(document).ready(function() {
+                $("p").append("YES!");
+            });
+
+            $("li").each(function(idx, e) {
+                $(e).css("color", "yellow");
+            });
+
+            $("li").each(function() {
+                $(this).css("color", "yellow");
+            });
+
+            $("li").each(function(idx) {
+                $(this).css("color", "yellow");
+            });
+
+            $("div").has("ul").css("color", "blue");
+
+            $("body").append("<div><h1>JQuery Core</h1></div>");
+
+            $("li.item-a").parent().css("background-color", "red");
+
+            $("li.third-item").prev().css("background-color", "blue");
+
+            $(".turkey").replaceWith("<li class='mashed'>Mashed Potatoes</li>")
+
+            $("span").parent().css({"color":"green"});
+            $("span").parent().parent().css({"color":"green"});
+        </script>
+    </body>
+</html>
