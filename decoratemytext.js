@@ -15,7 +15,16 @@ window.onload = function(){
 
 function reSizeFont(){
     var textarea = document.getElementById("area");
-    textarea.style.fontSize = "24pt";
+    var size = textarea.style.fontSize;
+    if (size == "") {
+        textarea.style.fontSize = "24pt";
+        console.log(1);
+    }
+    else {
+        textarea.style.fontSize = (parseInt(size) + 2) + "pt";
+        console.log(2);
+    }
+    console.log("size: " + size);
     // let size = parseInt(textArea.style.fontSize);
     // size += 2;
     // textArea.style.fontSize = size + "pt";
@@ -28,15 +37,16 @@ function interval(){
 
 function onChange(){
     let checkBox = document.getElementById('checked');
+    var textarea = document.getElementById("area");
     if(checkBox.checked){
-       textArea.style.fontWeight = 'bold';
-       textArea.style.color = "green";
-       textArea.style.textDecoration = 'underline';
-       document.body.style.backgroundImage = "url('/images/hundred-dollar-bill.jpg')"
+        textarea.style.fontWeight = 'bold';
+        textarea.style.color = "green";
+        textarea.style.textDecoration = 'underline';
+    //    document.body.style.backgroundImage = "url('/images/rotten.gif')"
     }else{
-        textArea.style.fontWeight = 'normal'
-        textArea.style.color = '';
-       textArea.style.textDecoration = 'none';
+        textarea.style.fontWeight = 'normal'
+        textarea.style.color = '';
+        textarea.style.textDecoration = 'none';
        document.body.style.backgroundImage = '';
     }
    
