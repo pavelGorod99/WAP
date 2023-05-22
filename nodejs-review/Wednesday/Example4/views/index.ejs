@@ -1,0 +1,13 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        People:
+        <ul>
+            <% for (var i = 0; i < results.length; i++) { %>
+            <li>First name: <%= results[i].first_name %> | Last name: <%= results[i].last_name %> | Age: <%= results[i].age %></li>
+            <% } %>
+        </ul>
+    </body>
+</html>
