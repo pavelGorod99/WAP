@@ -1,0 +1,37 @@
+body {
+    display: flex; 
+    flex-direction: column; 
+    margin: 0
+}
+
+h1 {
+    background-color: #dddddd; 
+    margin: 0; 
+    height: 75px; 
+    display: flex; 
+    align-items: center;
+}
+
+label {
+    margin-right: 5px;
+}
+
+input {
+    margin-right: 5px;
+}
+
+#form-div {
+    display: flex; 
+    background-color: #eeeeee; 
+    height: 40px; 
+    align-items: center;
+}
+
+#result {
+    display: flex; 
+    flex-direction: column
+}
+
+#result > div {
+    margin: 10px 10px;
+}

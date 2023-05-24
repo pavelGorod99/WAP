@@ -15,6 +15,23 @@ function getPicture() {
         "success": showPicture,
         "error": noPicture
     });
+
+    //the other assignment
+
+//     fetch("https://api.nasa.gov/planetary/apod", {
+//     method: "GET",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//         api_key: "DEMO_KEY",
+//         date: document.getElementById("date").value
+//     })
+// })
+//     .then(response => response.json())
+//     .then(showPicture)
+//     .catch(noPicture);
+
 };
 
 function showPicture(data) {

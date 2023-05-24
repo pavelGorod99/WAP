@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="dict.css" type="text/css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="dict.js"></script>
+    </head>
+    <body>
+        <h1>
+            WAP Online Dictionary
+        </h1>
+        <div id="form-div">
+            <label>Term: </label>
+            <form onsubmit="search(this); return false;">
+                <input type="text" name="word">
+                <input type="submit" value="Lookup">
+            </form>
+        </div>
+        <div id="result"></div>
+    </body>
+</html>
